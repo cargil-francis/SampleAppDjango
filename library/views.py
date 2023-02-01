@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render,redirect,reverse
 from django.http import HttpResponse, HttpResponseRedirect
 from .models import Book,Author
 
@@ -19,7 +19,7 @@ def bookcreate(request):
 def book_delete(request,book_id):
     books=Book.objects.get(id=book_id)
     books.delete()
-    return redirect(book)
+    return redirect('library:book')
    
 def book_edit(request,book_id):
     books=Book.objects.get(id=book_id)
@@ -52,12 +52,16 @@ def add_submit(request):
     if request.method =='POST':
         title=request.POST.get('t_title')
         print(title)
-        author=request.POST.get('a_author')
+        author_name=request.POST.get('a_author')
+        author, created=Author.objects.get_or_create(Name=author_name)
         summary=request.POST.get('s_summary')
         date=request.POST.get('d_date')
         book=Book(Title=title,Author=author,Summary=summary,Published_date=date)
         book.save()
-    return render(request,'books.html')
+        books=Book.objects.all()
+
+        return render(request,'books.html',{'books':books})
+    
 
 def author_view(request):
     authors=Author.objects.all()
