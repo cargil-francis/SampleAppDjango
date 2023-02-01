@@ -6,8 +6,39 @@
     </head>
     <body>
         <h1>
-           This is Book 1's detail page
+           This is Books detail page
         </h1>
+        <table>
+            <thead>
+                <tr>
+                <th>
+                    Title
+               </th>
+                <th>
+                    Author
+                </th>
+                <th>
+                    Summary
+                </th>
+                <th>
+                    Published_Date
+                </th>
+            </tr>
+
+            </thead>
+            <tbody>
+                
+                <tr>
+                    <td>{{ books.Title }}</td>
+                    <td>{{ books.Author.Name }}</td>
+                    <td>{{ books.Summary }}</td>
+                    <td>{{ books.Published_date }}</td>
+
+                </tr>
+               
+            </tbody>
+            
+        </table>
        
 
     </body>
