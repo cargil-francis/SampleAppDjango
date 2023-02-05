@@ -6,7 +6,8 @@ from .models import Book,Author
 # Create your views here.
 
 def home(request):
-    return render(request,'home.html')
+    books=Book.objects.all()
+    return render(request,'home.html',{'books':books})
 
 def book(request):
     books=Book.objects.all()
@@ -58,9 +59,11 @@ def add_submit(request):
         date=request.POST.get('d_date')
         book=Book(Title=title,Author=author,Summary=summary,Published_date=date)
         book.save()
+        
         books=Book.objects.all()
+        return redirect('library:book')
 
-        return render(request,'books.html',{'books':books})
+        #return render(request,'books.html',{'books':books})
     
 
 def author_view(request):

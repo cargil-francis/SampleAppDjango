@@ -11,4 +11,5 @@ urlpatterns =[
     path('author/',views.author_view,name='author_view'),
     path('addbook/',views.add_book,name='add_book'),
     path('books/',views.add_submit,name='add_submit'),
+    
 ]
