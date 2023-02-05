@@ -11,6 +11,8 @@ class Book(models.Model):
     Summary=models.TextField()
     Published_date=models.DateField()
 
+
+
    
 
     
