@@ -11,5 +11,12 @@ urlpatterns =[
     path('author/',views.author_view,name='author_view'),
     path('addbook/',views.add_book,name='add_book'),
     path('books/',views.add_submit,name='add_submit'),
+    #__________user Interface_________________#
+   
+    path('signup/',views.signup_view,name='signup'),
+    path('signin/',views.signup,name='signin'),
+    path('login/',views.login_view,name='login'),
+    path('loginin/',views.login,name='loginin'),
+    
     
 ]
